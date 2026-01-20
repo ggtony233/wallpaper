@@ -53,7 +53,7 @@ func SetFromFile(file string) error {
 	case "Deepin":
 		return exec.Command("dconf", "write", "/com/deepin/wrap/gnome/desktop/background/picture-uri", strconv.Quote("file://"+file)).Run()
 	default:
-		err := exec.Command("swaybg", "-i", file).Start()
+		err := exec.Command("swaybg", "-i", file,"-m","fit","-c","000000").Start()
 		// if the command completed successfully, return
 		if err == nil {
 			return nil
